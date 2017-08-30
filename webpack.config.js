@@ -51,7 +51,10 @@ module.exports = function (par) {
                             loader: "style-loader"
                         },
                         {
-                            loader: "css-loader"
+                            loader: "css-loader",
+                        },
+                        {
+                            loader: "postcss-loader"
                         }
                     ]
                 },
