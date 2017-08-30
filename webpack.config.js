@@ -38,7 +38,7 @@ module.exports = function (par) {
                 {
                     test: /(\.jsx|\.js)$/,
                     use: {
-                        loader: "babel-loader"
+                        loader: "babel-loader"  // 把jsx语法转义成浏览器能识别的语句
                     },
                     exclude: /node_modules/
                 },
@@ -58,6 +58,7 @@ module.exports = function (par) {
                 {
                     test: /\.scss$/,
                     exclude: /node_modules/,
+                    // 把scss$语法转义成浏览器能识别的语句
                     loader: ['style-loader','css-loader','postcss-loader','sass-loader']
                 }
             ]
