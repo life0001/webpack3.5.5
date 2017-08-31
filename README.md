@@ -8,7 +8,7 @@ webpack3.5.5使用说明
 
 <pre>
 "scripts": {
-    "server": "webpack-dev-server --devtool eval --progress --colors --hot"
+    "server": "webpack-dev-server --devtool eval --progress --colors"
 }
 </pre>
 <p>上述配置项的意义：</p>
