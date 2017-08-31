@@ -4,7 +4,10 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const staticsPath = path.join(__dirname, './static');
+const svgDirs = [
+    require.resolve('antd-mobile').replace(/warn\.js$/, ''),  // 1. 属于 antd-mobile 内置 svg 文件
+    // path.resolve(__dirname, 'src/static'),  // 2. 自己私人的 svg 存放目录
+];
 module.exports = function (par) {
     return {
         entry: {
@@ -63,8 +66,17 @@ module.exports = function (par) {
                     exclude: /node_modules/,
                     // 把scss$语法转义成浏览器能识别的语句
                     loader: ['style-loader','css-loader','postcss-loader','sass-loader']
+                },
+                {
+                    test: /\.(svg)$/i,
+                    loader: ['svg-sprite-loader'],
+                    include: svgDirs,  // 把 svgDirs 路径下的所有 svg 文件交给 svg-sprite-loader 插件处理
                 }
             ]
+        },
+        // resolve项必填 否则使用antd-mobile模块会报错,
+        resolve: {
+            extensions: ['.web.tsx', '.web.ts', '.web.jsx', '.web.js', '.ts', '.tsx', '.js', '.jsx', '.json'],
         },
         plugins: [
             new webpack.BannerPlugin('版权所有'),
