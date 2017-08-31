@@ -18,7 +18,7 @@ webpack3.5.5使用说明
 3、progress - 显示合并代码进度，在运行npm run 的时候可见
 4、colors - 命令行中显示颜色！
 </pre>
-<h3>.babelrc文件配置</h3>
+<h5>.babelrc文件配置如下：</h5>
 <pre>
 {
     "presets": [
