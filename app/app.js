@@ -7,15 +7,15 @@ export default class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            percent: 10
+            percent: 30
         }
     }
    render() {
        const { percent } = this.state;
        return (
            <div>
-               <Line percent={50} //进度
-                     strokeWidth={2 } //进度条粗细
+               <Line percent={percent} //进度
+                     strokeWidth={2} //进度条粗细
                      trailWidth={2} //代表总和的线条宽度，永远<=上面的值strokeWidth
                      strokeColor="#f60" //进度条颜色
                      trailColor="#D3D3D3"
