@@ -18,4 +18,15 @@ webpack3.5.5使用说明
 3、progress - 显示合并代码进度，在运行npm run 的时候可见
 4、colors - 命令行中显示颜色！
 </pre>
-
+<h3>.babelrc文件配置</h3>
+<pre>
+{
+    "presets": [
+        "react",
+        "es2015"
+    ],
+    "plugins": [
+        ["import", { "style": "css", "libraryName": "antd-mobile" }]
+    ]
+}
+</pre>
