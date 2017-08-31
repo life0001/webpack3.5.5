@@ -14,8 +14,8 @@ webpack3.5.5使用说明
 <p>上述配置项的意义：</p>
 <pre>
 1、webpack-dev-server - 在 localhost:xx 建立一个 Web 服务器
-3、devtool eval - 为你的代码创建源地址。当有任何报错的时候可以让你更加精确地定位到文件和行号，在浏览器可见
-4、progress - 显示合并代码进度，在运行npm run 的时候可见
-5、colors - 命令行中显示颜色！
+2、devtool eval - 为你的代码创建源地址。当有任何报错的时候可以让你更加精确地定位到文件和行号，在浏览器可见
+3、progress - 显示合并代码进度，在运行npm run 的时候可见
+4、colors - 命令行中显示颜色！
 </pre>
 
