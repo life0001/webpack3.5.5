@@ -13,6 +13,17 @@ export default class App extends Component {
             bgcolor: '#ddd' // 底色
         }
     }
+    componentWillMount(){
+        const {percent} = this.state;
+        let ProgressNum = 0;
+        this.setState({percent: 0});
+        const _run = () => {
+            if (ProgressNum++ == percent) return;
+            this.setState({percent: ProgressNum});
+            setTimeout(_run, 10);
+        };
+        _run();
+    }
    render() {
        const { percent, bgcolor} = this.state;
        return (
@@ -22,12 +33,12 @@ export default class App extends Component {
                      trailWidth={2} //代表总和的线条宽度，永远<=上面的值strokeWidth
                      strokeColor="#f60" //进度条颜色
                      trailColor={bgcolor}
-                     width="90%"
+                     width="60%"
                />
 
                <Progress
                    percent={percent}
-                   position="fixed" //进度条的位置，fixed 将浮出固定在最顶层，可选: fixed normal
+                   position="normal" //进度条的位置，fixed 将浮出固定在最顶层，可选: fixed normal
                    unfilled="show" //是否隐藏未填充轨道，可选：show hide 默认show
                />
            </div>
