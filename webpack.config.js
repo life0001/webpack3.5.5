@@ -8,7 +8,8 @@ const svgDirs = [
     require.resolve('antd-mobile').replace(/warn\.js$/, ''),  // 1. 属于 antd-mobile 内置 svg 文件
     // path.resolve(__dirname, 'src/static'),  // 2. 自己私人的 svg 存放目录
 ];
-module.exports = function (par) {
+module.exports = function (env) {
+    const _isSc = env && env.test == 'true';
     return {
         entry: {
             app: __dirname + "/app/main.js",  // 唯一入口文件 __dirname代表本地计算机路径 如D:\xx\
@@ -20,7 +21,7 @@ module.exports = function (par) {
          * 开发环境推荐cheap-module-eval-source-map
          * 生产环境推荐 cheap-module-source-map
          */
-        devtool: "cheap-module-eval-source-map",
+        // devtool: "cheap-module-eval-source-map",
         output: {
             path: __dirname + "/public", // 执行webpack命令打包后文件存放路径
             publicPath: '/', // 告诉webpack从该路径下寻找文件
@@ -34,7 +35,8 @@ module.exports = function (par) {
             },
             port: 8083,
             compress: true, // 是否开启gzip压缩
-            inline: true, // 实时刷新
+            hot: true,     // 开启“热替换”，即尝试重新加载组件改变的部分（而不是重新加载整个页面）
+            inline: true   // 有改变就刷新（重新加载整个页面）
         },
         module: {
             rules: [
@@ -83,7 +85,11 @@ module.exports = function (par) {
             // HtmlWebpackPlugin作用是依据一个简单的index.html模板，生成一个自动引用你打包后的JS文件的新index.html
             new HtmlWebpackPlugin({
                 template: './index.html', // html模板所在目录，打包后的文件名不变，也存放在public目录下
-            })
+            }),
+            new webpack.DefinePlugin({
+                __SC__: _isSc
+            }),
+            new webpack.HotModuleReplacementPlugin()
         ]
     }
 };

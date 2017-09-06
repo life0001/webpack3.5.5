@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "server": "webpack-dev-server --devtool eval --progress --colors"
+    "test": "webpack-dev-server --devtool cheap-module-eval-source-map --progress --colors",
+    "sc": "webpack-dev-server --devtool cheap-module-source-map --progress --colors --env.test=true"
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +30,7 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "svg-sprite-loader": "^3.2.4",
+    "vconsole": "^2.5.2",
     "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {
