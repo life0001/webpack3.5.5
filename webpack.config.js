@@ -89,7 +89,7 @@ module.exports = function (env) {
             new webpack.DefinePlugin({
                 __SC__: _isSc
             }),
-            new webpack.HotModuleReplacementPlugin()
+            new webpack.HotModuleReplacementPlugin() // 如果设置了hot为true时才需添加这个
         ]
     }
 };
