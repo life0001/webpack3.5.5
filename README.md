@@ -48,3 +48,12 @@ const Home = () => (
 最后输出模块Home
 export const xxx= {Home}
 </pre>
+<h5>webpack.config.js文件output代码如下</h5>
+<pre>
+output: {
+            path: staticsPath,
+            filename: 'js/[name].bundle.[chunkhash:5].js',
+            publicPath: isProd ? `//i2.${_isUle ? 'ulecdn' : 'beta.ule'}.com/yzg/app/sld/` : '/',
+            chunkFilename: 'js/[name].[chunkhash:5].chunk.js',
+        },
+</pre>
