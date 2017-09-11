@@ -38,12 +38,14 @@ import Bundle from '@/bundle.js';
 // 不然webpack.config文件配置内chunkFilename配置项不会起作用，不会生成文件。
 例：
 import home from 'bundle-loader?lazy&name=[name]!@/components/Home/Home';
+<code>
 const Home = () => (
     <Bundle load={home}>
         {(Home) => <Home />}
     </Bundle>
 
 )
+</code>
 最后输出模块Home
 export const xxx= {Home}
 </pre>
