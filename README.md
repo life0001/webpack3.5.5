@@ -37,8 +37,8 @@ import Bundle from '@/bundle.js';
 // 异步引入，react-router4.0以上版本必须
 // 不然webpack.config文件配置内chunkFilename配置项不会起作用，不会生成文件。
 例：
-import home from 'bundle-loader?lazy&name=[name]!@/components/Home/Home';
 <code>
+import home from 'bundle-loader?lazy&name=[name]!@/components/Home/Home';
 const Home = () => (
     <Bundle load={home}>
         {(Home) => <Home />}
