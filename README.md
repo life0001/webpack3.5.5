@@ -30,3 +30,20 @@ webpack3.5.5使用说明
     ]
 }
 </pre>
+<h3>react-router4及以上配置</h3>
+<pre>
+// bundle-loader模型用来异步加载组件
+import Bundle from '@/bundle.js';
+// 异步引入，react-router4.0以上版本必须
+// 不然webpack.config文件配置内chunkFilename配置项不会起作用，不会生成文件。
+例：
+import home from 'bundle-loader?lazy&name=[name]!@/components/Home/Home';
+const Home = () => (
+    <Bundle load={home}>
+        {(Home) => <Home />}
+    </Bundle>
+
+)
+最后输出模块Home
+export const xxx= {Home}
+</pre>
