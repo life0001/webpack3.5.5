@@ -40,10 +40,9 @@ import Bundle from '@/bundle.js';
 <code>
 import home from 'bundle-loader?lazy&name=[name]!@/components/Home/Home';
 const Home = () => (
-    <Bundle load={home}>
-        {(Home) => <Home />}
-    </Bundle>
-
+    《Bundle load={home}》
+        {(Home) => <Home />}
+    《/Bundle》
 )
 </code>
 最后输出模块Home
